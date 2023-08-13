@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+    <style>
+        table {
+            width: 600px; /* Ширина таблицы */
+            border: 1px solid black; /* Рамка вокруг таблицы */
+            margin: auto; /* Выравниваем таблицу по центру окна  */
+        }
+
+        td {
+            text-align: center; /* Выравниваем текст по центру ячейки */
+        }
+
+        .left-form {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<h2 align="center"> Car List</h2>
+<table border="1">
+    <tr>
+        <th>Model</th>
+        <th>Series</th>
+        <th>EngineCapacity</th>
+    </tr>
+    <tr th:each="car : ${cars}">
+        <td th:utext="${car.model}"></td>
+        <td th:utext="${car.series}"></td>
+        <td th:utext="${car.engineCapacity}"></td>
+    <tr>
+        <td class="left-form">
+            <form action="#">
+                <label for="count">Enter Count: </label>
+                <input type="number" id="count" name="count" value="${count}" min="0"/>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
